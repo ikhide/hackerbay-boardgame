@@ -3,7 +3,7 @@ import Square from "../component/Square";
 import styled from "styled-components";
 import randomPoints from "../utils/randomPoints";
 import mario from "../assets/mario.jpg";
-import food from "../assets/food.jpg";
+import sprite from "../assets/sprite.png";
 
 function Game(props) {
   const [cordX, setCordX] = useState(null);
@@ -98,7 +98,7 @@ function Game(props) {
     }
   }, [xP, yP, cordX, cordY]);
 
-  //create and array to hold the game foods
+  //create and array to hold the game sprites
   const [alp, gh] = useState([]);
 
   useEffect(() => {
@@ -108,7 +108,7 @@ function Game(props) {
       for (let i = 0; i < cordX; i++) {
         array1.push(i);
       }
-      array1.fill(<Image className="img" src={food} alt="food" />);
+      array1.fill(<Image className="img" src={sprite} alt="food" />);
       gh(array1);
     }
   }, [cordX]);
@@ -126,7 +126,7 @@ function Game(props) {
     //removes food if player gets to the point of the food and also track if food has been remove
     for (let i = 0; i < xCord.length; i++) {
       if (x === yCord[i] && y === xCord[i]) {
-        alp[i] = <p className="me">Faa</p>;
+        alp[i] = <EmptyCell></EmptyCell>;
         tracker.current += 1;
       }
     }
@@ -156,8 +156,12 @@ function Game(props) {
 }
 
 const Container = styled.div``;
-const Image = styled.img`{
-  width: 36px;
-  height: 39px;
+const Image = styled.img`
+  width: 30px;
+  height: 32px;
+`;
+const EmptyCell = styled.p`
+  width: 30px;
+  height: 32px;
 `;
 export default Game;
