@@ -13,8 +13,6 @@ class App extends Component {
 
   render() {
     let { start } = this.state;
-    console.log(start);
-
     return (
       <div className="App">
         {/* <button className={style}>{!start ? "Start Game" : "Stop"}</button> */}
